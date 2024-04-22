@@ -33,6 +33,7 @@ form.addEventListener("submit", function (e) {
   const infoFromForm = new FormData(form) //data from form in object
   const titleForm = infoFromForm.get("title")
   const bodyForm = infoFromForm.get("post")
+
   const objectDataForm = {
     title: titleForm,
     body: bodyForm,
@@ -50,6 +51,5 @@ form.addEventListener("submit", function (e) {
       render()
     })
 
-  document.getElementById("titleId").value = ""
-  document.getElementById("post-text-area").value = ""
+  form.reset() //reseting form with reset method
 })
