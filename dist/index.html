@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/output.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>BlogPost</title>
+  </head>
+  <body class="bg-gray-700"
+    ><div class="container">
+      <h1 class="text-3xl text-center mt-8 mb-12 text-white font-black tracking-wide">Blog Post Project</h1>
+      <form id="form" action="" class="form flex flex-col bg-gray-600 p-3">
+        <input
+          class="form-inputs"
+          type="text"
+          name="title"
+          id="titleId"
+          placeholder="Title"
+          aria-label="title for post"
+          required
+        />
+        <textarea
+          class="form-inputs"
+          name="post"
+          id="post-text-area"
+          cols="30"
+          rows="10"
+          placeholder="Write about something!"
+          aria-label="text-area for post"
+          required
+        ></textarea>
+        <button
+          class="bg-blue-300 font-bold p-3 pl-6 pr-6 rounded-full mt-4 self-end"
+          id="form-submit-btn"
+          type="submit"
+          >Publish post</button
+        >
+      </form>
+      <div class="api-text" id="api-text"></div>
+    </div>
+    <script src="../main.js" type="module"></script>
+  </body>
+</html>
