@@ -3,17 +3,19 @@ console.log("Project")
 const textApi = document.getElementById("api-text")
 const form = document.getElementById("form")
 
+let postsArr = [] //creating array for items from api
+
 //Getting first 5 object from api
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
   .then(response => response.json())
   .then(data => {
-    const postData = data.slice(0, 5)
-    render(postData)
+    postsArr = data.slice(0, 5) //pushing first 5 objects into array
+    render()
   })
 
 //rendering object from api
-const render = item => {
-  const postMap = item
+const render = () => {
+  const postMap = postsArr
     .map(object => {
       return `
          <div class="api-inner-div">
@@ -44,13 +46,8 @@ form.addEventListener("submit", function (e) {
   })
     .then(response => response.json())
     .then(data => {
-      textApi.innerHTML = `
-          <div class="api-inner-div">
-            <h2>${data.title}</h2>
-            <p>${data.body}</p>
-          </div>
-           ${textApi.innerHTML}
-    ` //when operation is not over it remember older content of variable
+      postsArr.unshift(data) //add object on top array
+      render()
     })
 
   document.getElementById("titleId").value = ""
